@@ -7,22 +7,28 @@ class MetaBlog extends Page {
 	"ExcerptSize" => "Int",
 	"PerPage" => "Int"
 	);
-	static $icon = "mashups/images/treeicons/technorati";
+	
+	static $defaults = array(
+		"TopExcerptSize" => 255,
+		"ExcerptSize" => 100,
+		"PerPage" => 10
+	);
+	
+	static $icon = "metablogservice/images/technorati";
 	
 	 // add custom fields for metablog page 
 	  function getCMSFields($cms) {
     	$fields = parent::getCMSFields($cms);
-      	$fields->addFieldToTab("Root.Content.Main", new TextField("Tag","Tag"));
-      	$fields->addFieldToTab("Root.Content.Main", new NumericField("ExcerptSize","Excerpt size", 100));
-      	$fields->addFieldToTab("Root.Content.Main", new NumericField("TopExcerptSize","Top excerpt size", 150));
-      	$fields->addFieldToTab("Root.Content.Main", new NumericField("PerPage","Posts per page", 20));
+      	$fields->addFieldToTab("Root.Content.Posts", new TextField("Tag","Show posts tagged with :"));
+      	$fields->addFieldToTab("Root.Content.Posts", new NumericField("ExcerptSize","Excerpt length", 100));
+      	$fields->addFieldToTab("Root.Content.Posts", new NumericField("TopExcerptSize","Excerpt length of latest story", 255));
+      	$fields->addFieldToTab("Root.Content.Posts", new NumericField("PerPage","Posts per page", 10));
       return $fields;
    }
    
    function BlogPosts(){
 	$metablog = new MetablogService();
 	$page = isset($_GET['page'])? (int)$_GET['page']: 1;
-	$metablog->setApiKey('21ef36f6f8ba0dc7c699c77183c4a9d5');
 	
 	$posts = $metablog->getPosts($this->Tag, $this->ExcerptSize, $this->TopExcerptSize, $this->PerPage, ($this->PerPage*($page-1))+1);
 	
@@ -57,7 +63,7 @@ class MetaBlog_Controller extends Page_Controller {
 	  if(Director::fileExists(project() . "/css/MetaBlog.css")) {
          Requirements::css(project() . "/css/MetaBlog.css");
       }else{
-         Requirements::css("mashups/css/mashups.css");
+         Requirements::css("metablogservice/css/MetaBlog.css");
       }
       
       parent::init();	
