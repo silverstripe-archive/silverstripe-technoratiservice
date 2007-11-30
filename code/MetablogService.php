@@ -8,8 +8,8 @@ class MetablogService extends RestfulService {
 	private $postCount;
 	private $pageCount;
 	
-	function __construct(){
-		$this->baseURL = 'http://api.technorati.com/tag';
+	function __construct($expiry=NULL){
+		parent::__construct('http://www.flickr.com/services/rest/', $expiry);
 	    $this->checkErrors = true;
 	}
 	
