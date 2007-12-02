@@ -9,7 +9,7 @@ class MetablogService extends RestfulService {
 	private $pageCount;
 	
 	function __construct($expiry=NULL){
-		parent::__construct('http://www.flickr.com/services/rest/', $expiry);
+		parent::__construct('http://api.technorati.com/tag', $expiry);
 	    $this->checkErrors = true;
 	}
 	
@@ -61,7 +61,7 @@ class MetablogService extends RestfulService {
 		$this->postCount = $this->searchValue($conn, '//result/postsmatched');
 		$this->pageCount = (int)($this->postCount/$perpage);
 		
-		
+		Debug::show($conn);
 		return $results;
 	}
 	
