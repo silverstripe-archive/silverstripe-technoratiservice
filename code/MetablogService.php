@@ -42,9 +42,7 @@ class MetablogService extends RestfulService {
  	* @params start - Adjust the range of your result set. Set this number to larger than zero and you will receive the portion of Technorati's total result set ranging from start to start+limit. The default start value is 1.
  	*/
 	
-	function getPosts($tag, $excerpt=100, $topexcerpt=150, $perpage=20, $start=Null){
-		//Debug::show();
-		
+	function getPosts($tag, $excerpt=100, $topexcerpt=150, $perpage=20, $start=Null){	
 		$params = array(
 			'tag' => $tag,
 			'excerptsize' => "$excerpt",
@@ -61,7 +59,6 @@ class MetablogService extends RestfulService {
 		$this->postCount = $this->searchValue($conn, '//result/postsmatched');
 		$this->pageCount = (int)($this->postCount/$perpage);
 		
-		Debug::show($conn);
 		return $results;
 	}
 	
