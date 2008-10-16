@@ -42,8 +42,8 @@ class CosmoService extends RestfulService {
 			);
 		
 		$this->setQueryString($params);
-		$conn = $this->connect();
-		$results = $this->getValues($conn, 'document', 'item');	
+		$response = $this->request();
+		$results = $this->getValues($response->getBody(), 'document', 'item');	
 		
 		return $results;
 	}

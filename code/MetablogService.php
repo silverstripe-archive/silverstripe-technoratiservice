@@ -53,17 +53,17 @@ class MetablogService extends RestfulService {
 			);
 		
 		$this->setQueryString($params);
-		$conn = $this->connect();
+		$response = $this->request();
 		
-		$results = $this->getValues($conn, 'document', 'item');	
-		$this->postCount = $this->searchValue($conn, '//result/postsmatched');
+		$results = $this->getValues($response->getBody(), 'document', 'item');	
+		$this->postCount = $this->searchValue($response->getBody(), '//result/postsmatched');
 		$this->pageCount = (int)($this->postCount/$perpage);
 		
 		return $results;
 	}
 	
 	function Paginate(){
-	$current_url = Director::currentURLSegment();
+	$current_url = Controller::curr()->Link();
 
 		$current_page = isset($_GET['page'])? (int)$_GET['page']: 1;;
 		$last_page = $this->pageCount;
