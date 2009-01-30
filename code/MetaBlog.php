@@ -37,7 +37,9 @@ class MetaBlog extends Page {
 		foreach($posts as $post){
 			$postsHTML .= "<div class='metablogPost'>";
 			$postsHTML .= "<h2><a href='".$post->permalink."'>".$post->title."</a></h2>";
+			$postsHTML .= "<div class='metablogPostInfo'>";
 			$postsHTML .= "<span>".$post->created. " - </span><a href='".$post->weblog_url."'>".$post->weblog_name."</a>";
+			$postsHTML .= "</div>";
 			$postsHTML .= "<p>".$post->excerpt."...</p>";
 			$postsHTML .= "</div>";	
 		}
