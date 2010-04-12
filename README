@@ -12,6 +12,9 @@ Maintainer Contact
 Lakshan Perera (Nickname: lperera)
 <perera.lakshan (at) gmail (dot) com>
 
+Will Rossiter (Nickname: wrossiter, willr) 
+<will (at) silverstripe (dot) com>
+
 Requirements
 -----------------------------------------------
 
@@ -27,7 +30,6 @@ I.e. you will now have the following root folders
 assets
 mysite
 cms
-jsparty
 sapphire
 technoratiservice
 
@@ -43,7 +45,9 @@ technoratiservice
 5. Add these and visit your public site to reflect the changes
 
 :: NOTE ::
-If you are still using deprecated all-in-one mashups module, please remove it before installing this. All other functionalities which were available in mashups module are now available in separate modules. Check - YoutubeService, MetablogService.
+If you are still using deprecated all-in-one mashups module, please remove it before installing this.
+ All other functionalities which were available in mashups module are now available in separate modules. 
+Check - YoutubeService, MetablogService.
 
 Usage Overview
 -----------------------------------------------
