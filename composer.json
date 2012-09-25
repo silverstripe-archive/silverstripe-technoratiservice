@@ -1,0 +1,20 @@
+{
+	"name": "silverstripe-labs/technoratiservice ",
+	"description": "Technorati API integration for SilverStripe CMS.",
+	"type": "silverstripe-module",
+	"keywords": ["silverstripe-labs", "technoratiservice"],
+	"authors": [
+	{
+		"name": "Lakshan Perera",
+		"email": "perera.lakshan@gmail.com"
+	},
+	{
+		"name": "Will Rossiter",
+		"email": "will@fullscreen.io"
+	}
+	],
+	"require":
+	{
+		"silverstripe/framework": "2.4.*"
+	}
+}
